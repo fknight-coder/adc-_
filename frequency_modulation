@@ -1,0 +1,28 @@
+clc;
+close all;
+fm = input('enter the modulating frequency=');
+vm = input('enter the amplitude of the modulation signal=');
+fc = input('enter the carieer frequency=');
+vc = input('enter the ampliyude of carieer signal=');
+t = -5:0.01:5;
+
+mf =vm*fc;
+v = mf*sin(2*pi*fm*t);
+p = 2*pi*fc*t;
+q = mf*sin(2*pi*fm*t);
+mod = vc*sin(p+q);
+subplot(3,1,1);
+plot(t,q);
+xlabel('time');
+ylabel('amplitude');
+title('modulation signal');
+subplot(3,1,2);
+plot(t,sin(p));
+xlabel('time');
+ylabel('amplitude');
+title('carrier signal')
+subplot(3,1,3);
+plot(t,mod);
+xlabel('time');
+ylabel('amplitude');
+title('FM wave')
